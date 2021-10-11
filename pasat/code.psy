@@ -1,0 +1,132 @@
+# PASAT is cognitive task to measure selective and sustained attention and is also involved in the execution of the task. Numbers are presented visually and orally at a rate of about 1 seconds; the subject must add pairs of numbers, adding each number to the previous one. In this way, the first number will be added with the second, the second with the third, the third with the fourth and so on.
+# The Paced Auditory Serial Addition Test (PASAT) [Gronwall, D., & Sampson, H. (1974). The psychological effects of concussion. Auckland, New Zealand: Auckland University Press]
+# sound from Freesound.org by Iwan Gabovitch, Creative Common License. https://freesound.org/s/169629/ 
+
+# load sound of digits
+sounds
+  zero zero.mp3
+  one one.mp3
+  two two.mp3
+  three three.mp3
+  four four.mp3
+  five five.mp3
+  six six.mp3
+  seven seven.mp3
+  eight eight.mp3
+  nine nine.mp3
+
+# load instructions
+bitmaps
+  intro intro.png
+
+options
+  fullscreen
+  set &a 0
+
+fonts
+  arial 40
+
+task firsttask
+  keys space
+  show bitmap intro
+  readkey 1 100000  
+  clear -1
+  show text &a
+  sound zero
+  save "TASKNAME" "RT" "STATUS" "KEY" "$key_pressed" "&a" "$b" "$sum"
+  save TASKNAME "0" "0" "0" "0" &a "0" "0"
+  delay 1000
+  clear -1
+#  delay 1000
+
+task pasat
+  keys 0 1 2 3 4 5 6 7 8 9 
+  set $b random 0 9
+  if $b == 0
+    sound zero
+  fi
+  if $b == 1
+    sound one
+  fi
+  if $b == 2
+    sound two
+  fi
+  if $b == 3
+    sound three
+  fi
+  if $b == 4
+    sound four
+  fi
+  if $b == 5
+    sound five
+  fi
+  if $b == 6
+    sound six
+  fi
+  if $b == 7
+    sound seven
+  fi
+  if $b == 8
+    sound eight
+  fi
+  if $b == 9
+    sound nine
+  fi
+  show text $b 
+  set $sum expression &a+$b
+  delay 1000
+  clear -1
+  delay 1000
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys $sum 3000 size 1
+  set $somma expression WORD
+  delay 1000
+  clear screen
+#  delay 1000
+  if STATUS != TIMEOUT
+    if $somma == $sum
+      text color green
+      show text "OK"
+      delay 1000
+      clear -1
+#      delay 1000
+      set $key_pressed expression WORD
+      save TASKNAME RT "correct" WORD $key_pressed &a $b $sum
+    fi
+    if $somma != $sum
+      text color red
+      show text "WRONG"
+      delay 1000
+      clear -1
+#      delay 1000
+      set $key_pressed expression WORD
+      save TASKNAME RT "wrong" WORD $key_pressed &a $b $sum
+    fi
+  fi
+  if STATUS == TIMEOUT
+    text color blue
+    show text "TIMEOUT"
+    delay 1000
+    clear -1
+#    delay 1000
+    set $key_pressed expression WORD
+    save TASKNAME RT "timeout" "no_key" "no_key-1" &a $b $sum
+  fi
+  set &a $b
+
+block firsttask
+  tasklist
+    firsttask 1 fixed
+  end
+
+block blockpasat
+  tasklist
+    pasat 10 fixed
+  end
+  
+blockorder
+  firsttask
+  blockpasat
