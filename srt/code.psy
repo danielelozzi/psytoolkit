@@ -1,0 +1,594 @@
+# SRT -  Buschke Verbal Selective Reminding Test
+# Verbal learning assessment test.
+
+sounds
+  casa casa.mp3
+  gatto gatto.mp3
+  arancia arancia.mp3
+  sasso sasso.mp3
+  mare mare.mp3
+  automobile automobile.mp3
+  telefono telefono.mp3
+  albero albero.mp3
+  fiore fiore.mp3
+  libro libro.mp3
+  penna penna.mp3
+  forchetta forchetta.mp3
+
+options 
+  fullscreen
+  set &var0 "casa"
+  set &var1 "gatto"
+  set &var2 "arancia"
+  set &var3 "sasso"
+  set &var4 "mare"
+  set &var5 "automobile"
+  set &var6 "telefono"
+  set &var7 "albero"
+  set &var8 "fiore"
+  set &var9 "libro"
+  set &var10 "penna"
+  set &var11 "forchetta"
+  set &var0b "CASA"
+  set &var1b "GATTO"
+  set &var2b "ARANCIA"
+  set &var3b "SASSO"
+  set &var4b "MARE"
+  set &var5b "AUTOMOBILE"
+  set &var6b "TELEFONO"
+  set &var7b "ALBERO"
+  set &var8b "FIORE"
+  set &var9b "LIBRO"
+  set &var10b "PENNA"
+  set &var11b "FORCHETTA"
+  set &var0s casa
+  set &var1s gatto
+  set &var2s arancia
+  set &var3s sasso
+  set &var4s mare
+  set &var5s automobile
+  set &var6s telefono
+  set &var7s albero
+  set &var8s fiore
+  set &var9s libro
+  set &var10s penna
+  set &var11s forchetta
+
+task taskword
+  show text &var0
+  sound &var0s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var1
+  sound &var1s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var2
+  sound &var2s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var3
+  sound &var3s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var4
+  sound &var4s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var5
+  sound &var5s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var6
+  sound &var6s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var7
+  sound &var7s
+  delay 1000
+  clear screen 
+  delay 1000
+  show text &var8
+  sound &var8s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var9
+  sound &var9s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var10
+  sound &var10s
+  delay 1000
+  clear screen
+  delay 1000
+  show text &var11
+  sound &var11s
+  delay 1000
+  clear screen
+  delay 1000
+
+task taskshow
+  keys space
+  show text "type all the word that you can remind followed by RETURN ↵"
+  readkey 1 100000
+  clear screen
+  save "$var_rec" "RT"
+
+task tasksrt
+  keys space a b c d e f g h i j k l m n o p q r s t u v x y w z 
+# 1st readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert0 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 2nd readkeys
+  text color yellow
+  show text "TYPE" -20 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert1 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 3st readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert2 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 4th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert3 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 5th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert4 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 6th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert5 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 7th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert6 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 8st readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert7 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 9th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert8 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 10th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert9 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 11th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert10 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 12th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys WORD 3000
+  set $insert11 WORD
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+  show text "you will see only words you didn't typed" 0 -50
+  show text "type all the word that you can remind followed by RETURN ↵" 0 0
+  show text "press SPACE BAR when you are ready" 0 50
+  readkey 1 10000
+  clear screen
+if $insert0 != &var0 and $insert1 != &var0 and $insert2 != &var0 and $insert3 != &var0 and $insert4 != &var0 and $insert5 != &var0 and $insert6 != &var0 and $insert7 != &var0 and $insert8 != &var0 and $insert9 != &var0 and $insert10 != &var0 and $insert11 != &var0 and $insert0 != &var0b and $insert1 != &var0b and $insert2 != &var0b and $insert3 != &var0b and $insert4 != &var0b and $insert5 != &var0b and $insert6 != &var0b and $insert7 != &var0b and $insert8 != &var0b and $insert9 != &var0b and $insert10 != &var0b and $insert11 != &var0b
+  show text &var0
+  sound &var0s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var1 and $insert1 != &var1 and $insert2 != &var1 and $insert3 != &var1 and $insert4 != &var1 and $insert5 != &var1 and $insert6 != &var1 and $insert7 != &var1 and $insert8 != &var1 and $insert9 != &var1 and $insert10 != &var1 and $insert11 != &var1 and $insert0 != &var1b and $insert1 != &var1b and $insert2 != &var1b and $insert3 != &var1b and $insert4 != &var1b and $insert5 != &var1b and $insert6 != &var1b and $insert7 != &var1b and $insert8 != &var1b and $insert9 != &var1b and $insert10 != &var1b and $insert11 != &var1b
+  show text &var1
+  sound &var1s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var2 and $insert1 != &var2 and $insert2 != &var2 and $insert3 != &var2 and $insert4 != &var2 and $insert5 != &var2 and $insert6 != &var2 and $insert7 != &var2 and $insert8 != &var2 and $insert9 != &var2 and $insert10 != &var2 and $insert11 != &var2 and $insert0 != &var2b and $insert1 != &var2b and $insert2 != &var2b and $insert3 != &var2b and $insert4 != &var2b and $insert5 != &var2b and $insert6 != &var2b and $insert7 != &var2b and $insert8 != &var2b and $insert9 != &var2b and $insert10 != &var2b and $insert11 != &var2b
+  show text &var2
+  sound &var2s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var3 and $insert1 != &var3 and $insert2 != &var3 and $insert3 != &var3 and $insert4 != &var3 and $insert5 != &var3 and $insert6 != &var3 and $insert7 != &var3 and $insert8 != &var3 and $insert9 != &var3 and $insert10 != &var3 and $insert11 != &var3 and $insert0 != &var3b and $insert1 != &var3b and $insert2 != &var3b and $insert3 != &var3b and $insert4 != &var3b and $insert5 != &var3b and $insert6 != &var3b and $insert7 != &var3b and $insert8 != &var3b and $insert9 != &var3b and $insert10 != &var3b and $insert11 != &var3b
+  show text &var3
+  sound &var3s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var4 and $insert1 != &var4 and $insert2 != &var4 and $insert3 != &var4 and $insert4 != &var4 and $insert5 != &var4 and $insert6 != &var4 and $insert7 != &var4 and $insert8 != &var4 and $insert9 != &var4 and $insert10 != &var4 and $insert11 != &var4 and $insert0 != &var4b and $insert1 != &var4b and $insert2 != &var4b and $insert3 != &var4b and $insert4 != &var4b and $insert5 != &var4b and $insert6 != &var4b and $insert7 != &var4b and $insert8 != &var4b and $insert9 != &var4b and $insert10 != &var4b and $insert11 != &var4b
+  show text &var4
+  sound &var4s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var5 and $insert1 != &var5 and $insert2 != &var5 and $insert3 != &var5 and $insert4 != &var5 and $insert5 != &var5 and $insert6 != &var5 and $insert7 != &var5 and $insert8 != &var5 and $insert9 != &var5 and $insert10 != &var5 and $insert11 != &var5 and $insert0 != &var5b and $insert1 != &var5b and $insert2 != &var5b and $insert3 != &var5b and $insert4 != &var5b and $insert5 != &var5b and $insert6 != &var5b and $insert7 != &var5b and $insert8 != &var5b and $insert9 != &var5b and $insert10 != &var5b and $insert11 != &var5b
+  show text &var5
+  sound &var5s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var6 and $insert1 != &var6 and $insert2 != &var6 and $insert3 != &var6 and $insert4 != &var6 and $insert5 != &var6 and $insert6 != &var6 and $insert7 != &var6 and $insert8 != &var6 and $insert9 != &var6 and $insert10 != &var6 and $insert11 != &var6 and $insert0 != &var6b and $insert1 != &var6b and $insert2 != &var6b and $insert3 != &var6b and $insert4 != &var6b and $insert5 != &var6b and $insert6 != &var6b and $insert7 != &var6b and $insert8 != &var6b and $insert9 != &var6b and $insert10 != &var6b and $insert11 != &var6b
+  show text &var6
+  sound &var6s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var7 and $insert1 != &var7 and $insert2 != &var7 and $insert3 != &var7 and $insert4 != &var7 and $insert5 != &var7 and $insert6 != &var7 and $insert7 != &var7 and $insert8 != &var7 and $insert9 != &var7 and $insert10 != &var7 and $insert11 != &var7 and $insert0 != &var7b and $insert1 != &var7b and $insert2 != &var7b and $insert3 != &var7b and $insert4 != &var7b and $insert5 != &var7b and $insert6 != &var7b and $insert7 != &var7b and $insert8 != &var7b and $insert9 != &var7b and $insert10 != &var7b and $insert11 != &var7b
+  show text &var7
+  sound &var7s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var8 and $insert1 != &var8 and $insert2 != &var8 and $insert3 != &var8 and $insert4 != &var8 and $insert5 != &var8 and $insert6 != &var8 and $insert7 != &var8 and $insert8 != &var8 and $insert9 != &var8 and $insert10 != &var8 and $insert11 != &var8 and $insert0 != &var8b and $insert1 != &var8b and $insert2 != &var8b and $insert3 != &var8b and $insert4 != &var8b and $insert5 != &var8b and $insert6 != &var8b and $insert7 != &var8b and $insert8 != &var8b and $insert9 != &var8b and $insert10 != &var8b and $insert11 != &var8b
+  show text &var8
+  sound &var8s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var9 and $insert1 != &var9 and $insert2 != &var9 and $insert3 != &var9 and $insert4 != &var9 and $insert5 != &var9 and $insert6 != &var9 and $insert7 != &var9 and $insert8 != &var9 and $insert9 != &var9 and $insert10 != &var9 and $insert11 != &var9 and $insert0 != &var9b and $insert1 != &var9b and $insert2 != &var9b and $insert3 != &var9b and $insert4 != &var9b and $insert5 != &var9b and $insert6 != &var9b and $insert7 != &var9b and $insert8 != &var9b and $insert9 != &var9b and $insert10 != &var9b and $insert11 != &var9b
+  show text &var9
+  sound &var9s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var10 and $insert1 != &var10 and $insert2 != &var10 and $insert3 != &var10 and $insert4 != &var10 and $insert5 != &var10 and $insert6 != &var10 and $insert7 != &var10 and $insert8 != &var10 and $insert9 != &var10 and $insert10 != &var10 and $insert11 != &var10 and $insert0 != &var10b and $insert1 != &var10b and $insert2 != &var10b and $insert3 != &var10b and $insert4 != &var10b and $insert5 != &var10b and $insert6 != &var10b and $insert7 != &var10b and $insert8 != &var10b and $insert9 != &var10b and $insert10 != &var10b and $insert11 != &var10b
+  show text &var10
+  sound &var10s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+if $insert0 != &var11 and $insert1 != &var11 and $insert2 != &var11 and $insert3 != &var11 and $insert4 != &var11 and $insert5 != &var11 and $insert6 != &var11 and $insert7 != &var11 and $insert8 != &var11 and $insert9 != &var11 and $insert10 != &var11 and $insert11 != &var11 and $insert0 != &var11b and $insert1 != &var11b and $insert2 != &var11b and $insert3 != &var11b and $insert4 != &var11b and $insert5 != &var11b and $insert6 != &var11b and $insert7 != &var11b and $insert8 != &var11b and $insert9 != &var11b and $insert10 != &var11b and $insert11 != &var11b
+  show text &var11
+  sound &var11s
+  delay 1000
+  clear screen
+  delay 1000
+fi
+
+task taskshow2
+  keys space
+  show text "type all the word that you can remind followed by RETURN ↵"
+  readkey 1 100000
+  clear screen
+  save "part2"
+
+task tasksrt2
+  set $insert0 0
+  set $insert1 0
+  set $insert2 0
+  set $insert3 0
+  set $insert4 0
+  set $insert5 0
+  set $insert6 0
+  set $insert7 0
+  set $insert8 0
+  set $insert9 0
+  set $insert10 0
+  set $insert11 0
+  keys a b c d e f g h i j k l m n o p q r s t u v x y w z 
+# 1st readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert0 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 2nd readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert1 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 3st readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert2 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 4th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert3 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 5th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert4 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 6th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert5 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 7th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert6 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 8st readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert7 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 9th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert8 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 10th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert9 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 11th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert10 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+# 12th readkeys
+  text color yellow
+  show text "TYPE" 0 50
+  show text "and press RETURN ↵" 0 100
+  text color white
+  readkeys option size 15
+  readkeys option show 0 0
+  readkeys $insert11 3000
+  delay 1000
+  clear screen
+  delay 1000
+  save WORD RT
+  clear screen
+
+block blockword
+  tasklist
+    taskword 1
+  end
+
+block blockshow
+  tasklist
+    taskshow 1
+  end
+
+block blocksrt
+  tasklist 
+    tasksrt 1
+  end
+
+block blockshow2
+  tasklist
+    taskshow2 1
+  end
+
+block blocksrt2
+  tasklist 
+    tasksrt2 1
+  end
+
+blockorder
+  blockword
+  blockshow
+  blocksrt
+  blockshow2
+  blocksrt2

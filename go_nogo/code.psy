@@ -1,0 +1,132 @@
+# go/no-go test to assess simple time reaction. 75% go and 25% no-go stimuli
+# with go stimuli: 9 OK 10 TIMEOUT 11 WRONG-KEY
+# with no-go stimuli: 12 OK(timeout) 13 WRONG (press space key) 14 (press another key)
+
+#upload images
+bitmaps
+  introgonogo introgonogo.bmp
+  introgonogo2 introgonogo2.bmp
+  introgonogo3 introgonogo3.bmp
+  endgonogo endgonogo.bmp
+  imggo imggo.bmp
+  imgnogo imgnogo.bmp
+
+#task intro to go/no-go test
+task introgonogo
+  keys space
+  show bitmap introgonogo
+  readkey 1 100000
+  show bitmap introgonogo2
+  readkey 1 100000
+
+#task end go/no-go test
+task endgonogo
+  keys space
+  show bitmap endgonogo
+  readkey 1 100000
+   
+#tabella task
+table gonogo
+  "go" imggo 0
+  "go" imggo 0
+  "nogo" imgnogo 1
+  "go" imggo 0
+  "go" imggo 0
+  "nogo" imgnogo 1
+  "nogo" imgnogo 1
+  "nogo" imgnogo 1
+  "nogo" imgnogo 1
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "nogo" imgnogo 1
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "nogo" imgnogo 1
+  "go" imggo 0
+  "nogo" imgnogo 1
+  "go" imggo 0
+  "nogo" imgnogo 1
+  "nogo" imgnogo 1
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "nogo" imgnogo 1
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+  "go" imggo 0
+
+task gonogo
+  table gonogo
+  set $iti random 300 600
+  keys space
+  show bitmap @2
+  readkey 1 400 #time to respond to key previously set
+  if @3 == 0
+      if KEY == 1 and STATUS != TIMEOUT
+        set $response 9
+      fi
+      if KEY != 1 and STATUS != TIMEOUT
+        set $response 11
+      fi
+      if STATUS == TIMEOUT
+        set $response 10
+      fi
+      clear -1
+      delay $iti  # intertrial interval # maxium time to change to next stimulus
+      save TASKNAME BLOCKNAME RT $response @1 $iti #saving in three column in order TASKNAME BLOCKNAME, Reation Time (if timeout: 400ms), error previous set
+  fi
+  if @3 == 1
+      if KEY == 1 and STATUS != TIMEOUT
+        set $response 13
+      fi
+      if KEY != 1 and STATUS != TIMEOUT
+        set $response 14
+      fi
+      if STATUS == TIMEOUT
+        set $response 12
+      fi
+      clear -1
+      delay $iti  # intertrial interval # maxium time to change to next stimulus
+      save TASKNAME BLOCKNAME RT $response @1 $iti #saving in three column in order TASKNAME BLOCKNAME, Reation Time (if timeout: 400ms), error previous set
+  fi
+
+#block intro go/no-go
+block blockintrogonogo
+  tasklist
+    introgonogo 1
+  end
+
+#block go/no-go
+block blockgonogo
+  tasklist
+    gonogo 44 fixed
+  end
+
+#block end go/no-go
+block blockendgonogo
+  tasklist
+    endgonogo 1
+  end
+
+#this allow to fix block order
+blockorder
+  blockintrogonogo
+  blockgonogo
+  blockendgonogo   

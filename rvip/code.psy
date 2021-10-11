@@ -1,0 +1,753 @@
+# created by Daniele Lozzi
+
+#in task with last stimulus GO (triplet)
+#when last stimulus are GO (6 if previous are 4 and 2, 7 if previous are 5 and 3)
+#0 (CORRECT - pressed SPACE KEY in TIME)
+#1 (WRONG - pressed NO-SPACE KEY in TIME)
+#2 (TIMEOUT - NO KEY pressed)
+
+#when last stimulus are NOGO (0,1,2,3,4,5,8,9 AND 7 if previous NOT are 5 and 3,6 if previous NOT are 4 and 2. Both conditions must be satisfied)
+#3 (CORRECT - NO KEY pressed = TIMEOUT)
+#4 (WRONG - pressed SPACE KEY in TIME)
+#5 (WRONG - other KEY pressed in TIME)
+
+# columns of output file: TASKNAME BLOCKNAME RT Response n_stim ITI
+
+#upload images
+bitmaps
+  introrvip introrvip.bmp   #1st slide introrvipduction and istructions
+  introrvip2 introrvip2.bmp #2ns slide instructions
+  start start.bmp #start real test after training
+  img0 st0.bmp#stimuli 0 to 9
+  img1 st1.bmp
+  img2 st2.bmp
+  img3 st3.bmp
+  img4 st4.bmp
+  img5 st5.bmp
+  img6 st6.bmp
+  img7 st7.bmp
+  img8 st8.bmp
+  img9 st9.bmp
+  endrvip endrvip.bmp
+  ex1 ex1.bmp
+  ex2 ex2.bmp
+  reminder reminder.bmp
+
+#initalizing all variables with 0
+task settings
+  set $stimulus0 0
+  set $stimulus1 0
+  set $stimulus2 0
+
+#task introduction and instructions to rvip. delay 100000 s per slide
+task introrvip
+  keys space
+  show bitmap introrvip
+  readkey 1 100000
+  show bitmap introrvip2
+  readkey 1 100000
+  show bitmap ex1
+  readkey 1 100000
+  show bitmap ex2
+  readkey 1 100000
+  show bitmap reminder
+  readkey 1 100000
+  
+#start real test after training
+task start
+  keys space
+  show bitmap start
+  readkey 1 100000
+
+#end task
+task endrvip
+  keys space
+  show bitmap endrvip
+  readkey 1 100000
+
+# table
+# @1: name of image. @2: name of file. @3: digit
+table rvip
+    "img3" img3 3
+    "img1" img1 1
+    "img1" img1 1
+    "img7" img7 7
+    "img9" img9 9
+    "img4" img4 4
+    "img8" img8 8
+    "img9" img9 9
+    "img7" img7 7
+    "img246" img2 2462
+    "img0" img0 0
+    "img7" img7 7
+    "img2" img2 2
+    "img357" img3 3573
+    "img357" img3 3573
+    "img5" img5 5
+    "img1" img1 1
+    "img7" img7 7
+    "img246" img2 2462
+    "img9" img9 9
+    "img5" img5 5
+    "img5" img5 5
+    "img0" img0 0
+    "img8" img8 8
+    "img7" img7 7
+    "img3" img3 3
+    "img0" img0 0
+    "img246" img2 2462
+    "img1" img1 1
+    "img8" img8 8
+    "img5" img5 5
+    "img5" img5 5
+    "img3" img3 3
+    "img9" img9 9
+    "img6" img6 6
+    "img357" img3 3573
+    "img5" img5 5
+    "img0" img0 0
+    "img0" img0 0
+    "img5" img5 5
+    "img8" img8 8
+    "img8" img8 8
+    "img5" img5 5
+    "img4" img4 4
+    "img3" img3 3
+    "img6" img6 6
+    "img6" img6 6
+    "img0" img0 0
+    "img9" img9 9
+    "img8" img8 8
+    "img7" img7 7
+    "img4" img4 4
+    "img0" img0 0
+    "img7" img7 7
+    "img9" img9 9
+    "img6" img6 6
+    "img6" img6 6
+    "img2" img2 2
+    "img357" img3 3573
+    "img7" img7 7
+    "img6" img6 6
+    "img6" img6 6
+    "img8" img8 8
+    "img1" img1 1
+    "img6" img6 6
+    "img8" img8 8
+    "img1" img1 1
+    "img3" img3 3
+    "img3" img3 3
+    "img3" img3 3
+    "img1" img1 1
+    "img2" img2 2
+    "img6" img6 6
+    "img6" img6 6
+    "img7" img7 7
+    "img2" img2 2
+    "img357" img3 3573
+    "img7" img7 7
+    "img8" img8 8
+    "img7" img7 7
+    "img4" img4 4
+    "img357" img3 3573
+    "img0" img0 0
+    "img4" img4 4
+    "img5" img5 5
+    "img357" img3 3573
+    "img357" img3 3573
+    "img7" img7 7
+    "img246" img2 2462
+    "img246" img2 2462
+    "img1" img1 1
+    "img8" img8 8
+    "img6" img6 6
+    "img246" img2 2462
+    "img4" img4 4
+    "img8" img8 8
+    "img1" img1 1
+    "img357" img3 3573
+    "img9" img9 9
+    "img4" img4 4
+    "img8" img8 8
+    "img8" img8 8
+    "img3" img3 3
+    "img246" img2 2462
+    "img4" img4 4
+    "img9" img9 9
+    "img2" img2 2
+    "img0" img0 0
+    "img3" img3 3
+    "img0" img0 0
+    "img1" img1 1
+    "img9" img9 9
+    "img246" img2 2462
+    "img2" img2 2
+    "img5" img5 5
+    "img5" img5 5
+    "img8" img8 8
+    "img6" img6 6
+    "img246" img2 2462
+    "img3" img3 3
+    "img246" img2 2462
+    "img0" img0 0
+    "img7" img7 7
+    "img2" img2 2
+    "img1" img1 1
+    "img4" img4 4
+    "img9" img9 9
+    "img4" img4 4
+    "img6" img6 6
+    "img2" img2 2
+    "img3" img3 3
+    "img2" img2 2
+    "img4" img4 4
+    "img7" img7 7
+    "img4" img4 4
+    "img3" img3 3
+    "img6" img6 6
+    "img2" img2 2
+    "img357" img3 3573
+    "img357" img3 3573
+    "img9" img9 9
+    "img4" img4 4
+    "img7" img7 7
+    "img246" img2 2462
+    "img1" img1 1
+    "img6" img6 6
+    "img7" img7 7
+    "img9" img9 9
+    "img1" img1 1
+    "img357" img3 3573
+    "img8" img8 8
+    "img5" img5 5
+    "img9" img9 9
+    "img7" img7 7
+    "img4" img4 4
+    "img246" img2 2462
+    "img0" img0 0
+    "img2" img2 2
+    "img246" img2 2462
+    "img2" img2 2
+    "img2" img2 2
+    "img9" img9 9
+    "img8" img8 8
+    "img3" img3 3
+    "img357" img3 3573
+    "img3" img3 3
+    "img5" img5 5
+    "img6" img6 6
+    "img1" img1 1
+    "img3" img3 3
+    "img9" img9 9
+    "img4" img4 4
+    "img3" img3 3
+    "img4" img4 4
+    "img3" img3 3
+    "img0" img0 0
+    "img7" img7 7
+    "img246" img2 2462
+    "img6" img6 6
+    "img1" img1 1
+    "img6" img6 6
+    "img2" img2 2
+    "img7" img7 7
+    "img1" img1 1
+    "img5" img5 5
+    "img357" img3 3573
+    "img2" img2 2
+    "img3" img3 3
+    "img2" img2 2
+    "img0" img0 0
+    "img5" img5 5
+    "img1" img1 1
+    "img0" img0 0
+    "img9" img9 9
+    "img246" img2 2462
+    "img357" img3 3573
+    "img4" img4 4
+    "img9" img9 9
+    "img2" img2 2
+    "img5" img5 5
+    "img5" img5 5
+    "img0" img0 0
+    "img4" img4 4
+    "img4" img4 4
+    "img9" img9 9
+    "img6" img6 6
+    "img0" img0 0
+    "img246" img2 2462
+    "img1" img1 1
+    "img246" img2 2462
+    "img2" img2 2
+    "img357" img3 3573
+    "img0" img0 0
+    "img246" img2 2462
+    "img357" img3 3573
+    "img9" img9 9
+    "img246" img2 2462
+    "img8" img8 8
+    "img8" img8 8
+    "img357" img3 3573
+    "img3" img3 3
+    "img5" img5 5
+    "img1" img1 1
+    "img357" img3 3573
+    "img8" img8 8
+    "img2" img2 2
+    "img0" img0 0
+    "img5" img5 5
+  
+task rvip
+  set $iti random 300 600 #iti is random between 300 to 600 ms to mantain up attention
+  table rvip
+  keys space
+  set $response 0
+  set $stimulus0 $stimulus1
+  set $stimulus1 $stimulus2
+  show bitmap @2
+  set $stimulus2 @3
+  readkey 1 400
+  if @3 == 0
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 0
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 0
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 0
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 1
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 1
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 1
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 1
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 2
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 2
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 2
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 2
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 3
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 3
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 3
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 3
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 4
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 4
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 4
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 4
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 5
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 5
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 5
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 5
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 8
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 8
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 8
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 8
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 9
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 8
+        fi
+        if KEY !=  1
+          set $response 5
+          set $n_stim 8
+        fi
+      fi
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 8
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 6
+    if STATUS != TIMEOUT
+        if KEY == 1 and $stimulus1 == 4 and $stimulus0 == 2 # to be considered valid it must be preceded by 4th and 2nd digit
+          set $response 0
+          set $n_stim 6
+        fi
+        if KEY == 1 and $stimulus1 != 4 and $stimulus0 == 2
+          set $response 4
+          set $n_stim 6
+        fi 
+        if KEY == 1 and $stimulus1 == 4 and $stimulus0 != 2
+          set $response 4
+          set $n_stim 6
+        fi
+        if KEY == 1 and $stimulus1 != 4 and $stimulus0 != 2
+          set $response 4
+          set $n_stim 6
+        fi
+        if KEY != 1 and $stimulus1 == 4 and $stimulus0 == 2
+          set $response 1
+          set $n_stim 6
+        fi
+        if KEY != 1 and $stimulus1 != 4 and $stimulus0 == 2
+          set $response 5
+          set $n_stim 6
+        fi
+        if KEY != 1 and $stimulus1 == 4 and $stimulus0 != 2
+          set $response 5
+          set $n_stim 6
+        fi
+        if KEY != 1 and $stimulus1 != 4 and $stimulus0 != 2
+          set $response 5
+          set $n_stim 6
+        fi
+      fi
+      if STATUS == TIMEOUT and $stimulus1 == 4 and $stimulus0 == 2
+        set $response 2
+        set $n_stim 6
+      fi
+      if STATUS == TIMEOUT and $stimulus1 != 4 and $stimulus0 == 2
+        set $response 3
+        set $n_stim 6
+      fi
+      if STATUS == TIMEOUT and $stimulus1 == 4 and $stimulus0 != 2
+        set $response 3
+        set $n_stim 6
+      fi
+      if STATUS == TIMEOUT and $stimulus1 != 4 and $stimulus0 != 2
+        set $response 3
+        set $n_stim 6
+      fi
+      clear -1
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+   fi
+  if @3 == 7
+    if STATUS != TIMEOUT
+        if KEY == 1 and $stimulus1 == 4 and $stimulus0 == 2 # to be considered valid it must be preceded by 4th and 2nd digit
+          set $response 0
+          set $n_stim 7
+        fi
+        if KEY == 1 and $stimulus1 != 4 and $stimulus0 == 2
+          set $response 4
+          set $n_stim 7
+        fi 
+        if KEY == 1 and $stimulus1 == 4 and $stimulus0 != 2
+          set $response 4
+          set $n_stim 7
+        fi
+        if KEY == 1 and $stimulus1 != 4 and $stimulus0 != 2
+          set $response 4
+          set $n_stim 7
+        fi
+        if KEY != 1 and $stimulus1 == 4 and $stimulus0 == 2
+          set $response 1
+          set $n_stim 7
+        fi
+        if KEY != 1 and $stimulus1 != 4 and $stimulus0 == 2
+          set $response 5
+          set $n_stim 7
+        fi
+        if KEY != 1 and $stimulus1 == 4 and $stimulus0 != 2
+          set $response 5
+          set $n_stim 7
+        fi
+        if KEY != 1 and $stimulus1 != 4 and $stimulus0 != 2
+          set $response 5
+          set $n_stim 7
+        fi
+      fi
+      if STATUS == TIMEOUT and $stimulus1 == 4 and $stimulus0 == 2
+        set $response 2
+        set $n_stim 7
+      fi
+      if STATUS == TIMEOUT and $stimulus1 != 4 and $stimulus0 == 2
+        set $response 3
+        set $n_stim 7
+      fi
+      if STATUS == TIMEOUT and $stimulus1 == 4 and $stimulus0 != 2
+        set $response 3
+        set $n_stim 7
+      fi
+      if STATUS == TIMEOUT and $stimulus1 != 4 and $stimulus0 != 2
+        set $response 3
+        set $n_stim 7
+      fi
+      clear -1
+      set $iti random 300 600
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+   fi
+   if @3 == 3573
+      if STATUS == TIMEOUT #condition 1: if 400 pressed any key 
+        set $response 3 #set variables response on 3
+        set $n_stim 3573 # n_stim indicates this is first 400GO stimulus in triplets
+      fi
+      if STATUS != TIMEOUT #condition 1: if pressed the set variables response
+        if KEY == 1 #condition 2: if it is pressed key 1 (in this case SPACE BAR)
+          set $response 4 #set variables response on 3
+          set $n_stim 3573 # n_stim indicates this is first 400GO in triplets
+        fi
+        if KEY != 1 #condition 2bis: if it is 400T pressed key 1 (in this case SPACE BAR)
+          set $response 5 #set variables response on 5
+          set $n_stim 3573 # n_stim indicates this is first 400GO in triplets
+        fi
+      fi  
+      clear -1
+      set $iti random 300 600
+      delay $iti # intertrial interval # maxium time to change to next stimulus
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti #saving in three column in order TASKNAME BLOCKNAME(in this case seq357), Reation Time (if timeout: 400ms), error previous set
+      set $response 0
+      set $stimulus0 $stimulus1
+      set $stimulus1 $stimulus2  
+      show bitmap img5
+      set $stimulus2 5
+      readkey 1 400 
+      if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 3575 # n_stim indicates this is second 400GO in triplets
+      fi
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 3575 # n_stim indicates this is second 400GO in triplets  
+        fi
+        if KEY != 1
+          set $response 5
+          set $n_stim 3575 # n_stim indicates this is second 400GO in triplets
+        fi
+      fi   
+      clear -1
+      set $iti random 300 600
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+      set $response 0
+      set $stimulus0 $stimulus1
+      set $stimulus1 $stimulus2  
+      show bitmap img7
+      set $stimulus2 7
+      readkey 1 400 
+      if STATUS == TIMEOUT
+        set $response 2
+        set $n_stim 3577 # n_stim indicates this is GO in triplets
+      fi
+      if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 0
+          set $n_stim 3577 # n_stim indicates this is GO in triplets
+        fi
+        if KEY != 1
+          set $response 1
+          set $n_stim 3577 # n_stim indicates this is GO in triplets
+        fi
+      fi  
+      clear -1
+      set $iti random 300 600
+      delay $iti # intertrial interval
+      save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 2462
+    if STATUS == TIMEOUT
+    set $response 3
+    set $n_stim 2462
+    fi
+    if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 2462
+        fi
+        if KEY != 1
+          set $response 5
+          set $n_stim 2462
+        fi
+    fi
+    clear -1
+    set $iti random 300 600
+    delay $iti # intertrial interval
+    save TASKNAME BLOCKNAME RT $response $n_stim $iti
+    set $response 0
+    set $stimulus0 $stimulus1
+    set $stimulus1 $stimulus2  
+    show bitmap img4
+    set $stimulus2 4
+    readkey 1 400 
+    if STATUS == TIMEOUT
+        set $response 3
+        set $n_stim 2464
+    fi
+    if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 4
+          set $n_stim 2464
+        fi
+        if KEY != 1
+          set $response 5
+          set $n_stim 2464
+        fi
+    fi
+    clear -1
+    set $iti random 300 600
+    delay $iti # intertrial interval
+    save TASKNAME BLOCKNAME RT $response $n_stim $iti
+    set $response 0
+    set $stimulus0 $stimulus1
+    set $stimulus1 $stimulus2  
+    show bitmap img6
+    set $stimulus2 6
+    readkey 1 400 
+    if STATUS == TIMEOUT
+        set $response 2
+        set $n_stim 2466
+    fi
+    if STATUS != TIMEOUT
+        if KEY == 1
+          set $response 0
+          set $n_stim 2466
+        fi
+        if KEY != 1
+          set $response 1
+          set $n_stim 2466
+        fi
+    fi
+    clear -1
+    set $iti random 300 600
+    delay $iti # intertrial interval
+    save TASKNAME BLOCKNAME RT $response $n_stim $iti
+  fi
+  if @3 == 9999
+    show bitmap start
+    readkey 1 100000
+  fi
+  
+# set blocks
+block blocksettings
+  tasklist
+    settings 1
+  end
+
+block blockintrorvip
+  tasklist
+    introrvip 1
+  end
+  
+block blocktrainrvip
+  tasklist
+    rvip 20 fixed
+  end
+
+block blockstart
+  tasklist
+    start 1
+  end
+
+block blockendrvip
+  tasklist
+    endrvip 1
+  end
+
+# each triplets contains 3 digit
+# each digits contains 400 ms presentation, 400 ms iti
+block blocktask
+  tasklist
+    rvip 228 fixed
+  end
+
+#this allow to fix block order
+blockorder
+  blockintrorvip
+  blocktrainrvip
+  blockstart
+  blocktask 
+  blockendrvip
