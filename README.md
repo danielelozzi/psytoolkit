@@ -7,6 +7,6 @@ PsyToolkit is a free-to-use toolkit for demonstrating, programming, and running 
 is created By Prof. Gijsbert Stoet (Professor in Psychology - Essex University, UK)
 if you use this code and publish an article, you have to cite this github page (https://github.com/danielelozzi) AND this two article:
 
-- Stoet, G. (2017). PsyToolkit: A novel web-based method for running online questionnaires and reaction-time experiments. Teaching of Psychology, 44(1), 24-31. Open access link
+- Stoet, G. (2017). PsyToolkit: A novel web-based method for running online questionnaires and reaction-time experiments. Teaching of Psychology, 44(1), 24-31. O
 
-- Stoet, G. (2010). PsyToolkit - A software package for programming psychological experiments using Linux. Behavior Research Methods, 42(4), 1096-1104. Open access link
+- Stoet, G. (2010). PsyToolkit - A software package for programming psychological experiments using Linux. Behavior Research Methods, 42(4), 1096-1104.
