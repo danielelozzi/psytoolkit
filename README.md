@@ -1,5 +1,4 @@
-# Psytoolkit
-Neuropsychological Tests for Psytoolkit Platform
+# Neuropsychological tests for Psytoolkit 
 
 This code require psytoolkit software or psytoolkit platform psytoolkit.org
 
