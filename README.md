@@ -1,4 +1,4 @@
-# psytoolkit
+# Psytoolkit
 Neuropsychological Tests for Psytoolkit Platform
 
 This code require psytoolkit software or psytoolkit platform psytoolkit.org
@@ -10,6 +10,8 @@ if you use this code and publish an article, I will be grateful to you if you me
 - Stoet, G. (2017). PsyToolkit: A novel web-based method for running online questionnaires and reaction-time experiments. Teaching of Psychology, 44(1), 24-31. O
 
 - Stoet, G. (2010). PsyToolkit - A software package for programming psychological experiments using Linux. Behavior Research Methods, 42(4), 1096-1104.
+
+Tests include in this repository are:
 
 1) Long term memory assessment (SRT)
 - Selective Reminding Test [Buschke, H. (1973). Selective reminding for analysis of memory and learning. Journal of Verbal
@@ -25,3 +27,5 @@ Psychosomatic Medicine 28, 594–604 (1966).]
 
 4) Sustained attention assessment (GO/NO-GO) - more easy than RVIP
 - Go/No-Go [On the speed of metal processes, Donders, 1868] 
+
+To use one or more of that tests, you have to create an account on psytoolkit.org website and upload code and other files, then, you have to run expiriment online or donwload html file to execute offline. Moreover, you can create survey and include expiriment. 
