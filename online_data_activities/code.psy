@@ -1,0 +1,156 @@
+options
+ fullscreen
+ mouse on
+ set &count 1
+
+bitmaps
+ biometric biometric.jpg
+ financial financial.jpg
+ health health.jpg
+ identity identity.jpg
+ online_search online_search.jpg
+ online_surf online_surf.jpg
+ personal personal.jpg
+ sensitive sensitive.jpg
+ social social.jpg
+ school school.jpg
+ habit habit.jpg
+ geoloc geoloc.jpg
+ preferences preferences.jpg
+ institutional institutional.png
+ interpersonal interpersonal.png
+ noshare noshare.png
+ commercial commercial.png
+ selector check.png
+ instructions instructions.png
+ arrow arrow.png
+ dati_forniti dati_forniti.png
+ dati_dedotti dati_dedotti.png
+
+table context
+ biometric institutional interpersonal noshare commercial "biometric"
+ financial institutional interpersonal noshare commercial "financial"
+ health institutional interpersonal noshare commercial "health"
+ identity institutional interpersonal noshare commercial "identity"
+ online_search institutional interpersonal noshare commercial "online_search"
+ online_surf institutional interpersonal noshare commercial "online_surf"
+ personal institutional interpersonal noshare commercial "personal"
+ sensitive institutional interpersonal noshare commercial "sensitive"
+ social institutional interpersonal noshare commercial "social"
+ school institutional interpersonal noshare commercial "school"
+ habit institutional interpersonal noshare commercial "habit"
+ geoloc institutional interpersonal noshare commercial "geoloc"
+ preferences institutional interpersonal noshare commercial "preferences"
+
+task save
+ save "response_time" "chosen_n" "institutional" "interpersonal" "noshare" "commercial" "data_type" "task" "n_task"
+
+task task_message_dati_dedotti
+ set &count increase
+  
+task task_message_dati_forniti
+ set &count increase
+
+task game_a
+ mouse show
+ table context
+ show bitmap @1 0 -100
+ show bitmap @2 -180 100
+ show bitmap @3 -60 100
+ show bitmap @4 60 100
+ show bitmap @5 180 100
+ choose option exit arrow arrow -150 -150
+ choose option minselect 0
+ choose option maxselect 4
+ choose option select selector
+ choose 99999 2 5
+ if CHOSEN_1 == 2
+  set $x1 1
+ fi
+ if CHOSEN_1 == 3
+  set $x2 1
+ fi
+ if CHOSEN_1 == 4
+  set $x3 1
+ fi
+ if CHOSEN_1 == 5
+  set $x4 1
+ fi 
+ if CHOSEN_2 == 2
+  set $x1 1
+ fi
+ if CHOSEN_2 == 3
+  set $x2 1
+ fi
+ if CHOSEN_2 == 4
+  set $x3 1
+ fi
+ if CHOSEN_2 == 5
+  set $x4 1
+ fi  
+ if CHOSEN_3 == 2
+  set $x1 1
+ fi
+ if CHOSEN_3 == 3
+  set $x2 1
+ fi
+ if CHOSEN_3 == 4
+  set $x3 1
+ fi
+ if CHOSEN_3 == 5
+  set $x4 1
+ fi 
+ if CHOSEN_4 == 2
+  set $x1 1
+ fi
+ if CHOSEN_4 == 3
+  set $x2 1
+ fi
+ if CHOSEN_4 == 4
+  set $x3 1
+ fi
+ if CHOSEN_4 == 5
+  set $x4 1
+ fi 
+ if &count == 1
+   set $tipo_dato "dati_personali"
+ fi
+ if &count == 2
+   set $tipo_dato "dati_dedotti"
+ fi
+ if &count == 3
+   set $tipo_dato "dati_forniti"
+ fi
+ save RT CHOSEN_N $x1 $x2 $x3 $x4 @6 TASKNAME $tipo_dato
+
+block blocksave
+ tasklist
+  save 1
+ end
+
+block blockgame
+ message instructions mouse
+ tasklist
+  game_a 13 all_before_repeat
+ end
+
+block blockmessage_dati_dedotti
+ message dati_dedotti mouse
+ tasklist
+  task_message_dati_dedotti 1
+ end
+
+block blockmessage_dati_forniti
+ message dati_forniti mouse
+ tasklist
+  task_message_dati_forniti 1
+ end
+
+blockorder
+ blocksave
+ blockgame
+ blockmessage_dati_dedotti
+ blockgame
+ blockmessage_dati_forniti
+ blockgame
+
