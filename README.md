@@ -1,4 +1,4 @@
-# Neuropsychological tests for Psytoolkit 
+# Psychological tests for Psytoolkit 
 
 This code require psytoolkit software or psytoolkit platform psytoolkit.org
 
@@ -26,5 +26,8 @@ Psychosomatic Medicine 28, 594–604 (1966).]
 
 4) Sustained attention assessment (GO/NO-GO) - more easy than RVIP
 - Go/No-Go [On the speed of metal processes, Donders, 1868] 
+
+5) Privacy concern on online activities
+- Online data activities [Livingstone, S., Stoilova, M. and Nandagiri, R. (2019) Talking to children about data and privacy online: research methodology. London: London School of Economics and Political Science.]
 
 To use one or more of that tests, you have to create an account on psytoolkit.org website and upload code and other files, then, you have to run expiriment online or donwload html file to execute offline. Moreover, you can create survey and include expiriment. 
