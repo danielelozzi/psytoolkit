@@ -1,0 +1,76 @@
+options
+  # fullscreen
+  set &response 0
+  set &lett1 0
+  set &lett2 0
+  set &atteso 0
+
+bitmaps
+  b b.png
+  d d.png
+  m m.png
+  n n.png
+  p p.png
+  q q.png
+
+table table_cpt
+  1 b
+  2 q
+  3 m
+  4 n
+  5 p
+  6 d
+
+task task_save
+  save "RT" "lettera_precedente" "lettera_attuale" "risposta" "atteso" "key"
+
+task task_cpt
+  table table_cpt
+  keys space
+  show bitmap @2
+  set &lett2 @1
+  readkey 1 1000
+  if &lett1 == 1 || &lett1 == 2 || &lett1 == 3
+    if &lett2 == &lett1
+      set &atteso "lettera_ok_ok"
+      if STATUS != TIMEOUT
+        set &response 1
+      else
+        set &response 0
+      fi
+    fi
+    if &lett2 != &lett1
+      set &atteso "lettera_ok_no_press"
+      if STATUS == TIMEOUT
+        set &response 1
+      else
+        set &response 0
+      fi
+    fi
+  else
+     set &atteso "lettera_no_no_press"
+     if STATUS != TIMEOUT
+       set &response 0
+     else
+       set &response 1
+     fi
+  fi
+  clear -1
+  save RT &lett1 &lett2 &response &atteso
+  delay 1000
+  set &lett1 @1
+
+block block_save
+  tasklist
+    task_save 1
+  end
+  
+block block_cpt
+  tasklist
+    task_cpt 20
+  end
+
+blockorder
+  block_save
+  block_cpt
+
